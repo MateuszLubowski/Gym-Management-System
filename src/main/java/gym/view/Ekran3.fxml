@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="gym.view.Ekran3Controller"
+      spacing="0" style="-fx-background-color: #f0f0f0;">
+
+    <!-- Success Banner -->
+    <VBox alignment="CENTER" spacing="10" style="-fx-background-color: #28a745; -fx-padding: 40;">
+        <Label text="✓" style="-fx-text-fill: white; -fx-font-size: 60px; -fx-font-weight: bold;"/>
+        <Label text="REZERWACJA UTWORZONA POMYŚLNIE!"
+               style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;"/>
+        <Label text="Dziękujemy za skorzystanie z systemu"
+               style="-fx-text-fill: #d4edda; -fx-font-size: 14px;"/>
+    </VBox>
+
+    <!-- Content w ScrollPane -->
+    <ScrollPane fitToWidth="true" fitToHeight="true"
+                style="-fx-background: #f0f0f0; -fx-background-color: #f0f0f0;">
+        <VBox spacing="20" style="-fx-padding: 30;">
+
+            <!-- Numer rezerwacji -->
+            <VBox spacing="10" alignment="CENTER" style="-fx-background-color: #d4edda; -fx-padding: 25; -fx-border-color: #c3e6cb; -fx-border-width: 2; -fx-border-radius: 10; -fx-background-radius: 10;">
+                <Label text="Numer rezerwacji:" style="-fx-text-fill: #155724;"/>
+                <Label fx:id="lblNumer" style="-fx-text-fill: #155724; -fx-font-size: 28px; -fx-font-weight: bold;"/>
+                <Button text="Oczekuje na akceptację" disable="true"
+                        style="-fx-background-color: #ffc107; -fx-text-fill: #856404; -fx-font-weight: bold; -fx-padding: 8 20;"/>
+            </VBox>
+
+            <!-- Szczegóły -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;">
+                <Label text="Szczegóły rezerwacji" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+
+                <GridPane hgap="20" vgap="12">
+                    <Label text="Strefa:" GridPane.columnIndex="0" GridPane.rowIndex="0" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblStrefa" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+                    <Label text="Data:" GridPane.columnIndex="0" GridPane.rowIndex="1" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblData" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+                    <Label text="Godziny:" GridPane.columnIndex="0" GridPane.rowIndex="2" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblGodziny" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+                    <Label text="Trener:" GridPane.columnIndex="0" GridPane.rowIndex="3" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="lblTrener" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                </GridPane>
+
+                <Separator/>
+
+                <VBox spacing="8">
+                    <HBox spacing="15">
+                        <Label text="Koszt strefy:" style="-fx-font-size: 14px;"/>
+                        <Label fx:id="lblKosztStrefy" style="-fx-font-size: 14px;"/>
+                    </HBox>
+                    <HBox spacing="15">
+                        <Label text="Koszt trenera:" style="-fx-font-size: 14px;"/>
+                        <Label fx:id="lblKosztTrenera" style="-fx-font-size: 14px;"/>
+                    </HBox>
+                </VBox>
+
+                <Separator/>
+
+                <HBox spacing="15" alignment="CENTER_LEFT" style="-fx-padding: 10 0 0 0;">
+                    <Label text="RAZEM:" style="-fx-font-weight: bold; -fx-font-size: 16px;"/>
+                    <Label fx:id="lblRazem" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-text-fill: #28a745;"/>
+                </HBox>
+
+                <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-background-color: #d4edda; -fx-padding: 12; -fx-background-radius: 5;">
+                    <Label fx:id="lblStatus" style="-fx-font-weight: bold; -fx-text-fill: #155724;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Info -->
+            <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 20; -fx-border-color: #ddd; -fx-border-radius: 5; -fx-background-radius: 5;">
+                <Label text="Ważne informacje:" style="-fx-font-weight: bold;"/>
+                <VBox spacing="8">
+                    <HBox spacing="8">
+                        <Label text="•" style="-fx-text-fill: #666;"/>
+                        <Label text="Rezerwacja oczekuje na akceptację właściciela (max. 24h)"
+                               wrapText="true" maxWidth="450" style="-fx-text-fill: #666;"/>
+                    </HBox>
+                    <HBox spacing="8">
+                        <Label text="•" style="-fx-text-fill: #666;"/>
+                        <Label fx:id="lblEmail" wrapText="true" maxWidth="450" style="-fx-text-fill: #666;"/>
+                    </HBox>
+                    <HBox spacing="8">
+                        <Label text="•" style="-fx-text-fill: #666;"/>
+                        <Label text="Anulowanie możliwe na: 2h przed rozpoczęciem"
+                               wrapText="true" maxWidth="450" style="-fx-text-fill: #666;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+
+            <!-- Przyciski -->
+            <HBox spacing="10" alignment="CENTER" style="-fx-padding: 20 0 20 0;">
+                <Button text="Pobierz PDF" onAction="#handlePDF"
+                        style="-fx-font-size: 14px; -fx-padding: 10 25; -fx-background-color: #e0e0e0;"/>
+                <Button text="Moje rezerwacje" onAction="#handleMojeRezerwacje"
+                        style="-fx-font-size: 14px; -fx-padding: 10 25; -fx-background-color: #4a90e2; -fx-text-fill: white;"/>
+                <Button text="Zamknij" onAction="#handleZamknij"
+                        style="-fx-font-size: 14px; -fx-padding: 10 25; -fx-background-color: #28a745; -fx-text-fill: white;"/>
+            </HBox>
+
+        </VBox>
+    </ScrollPane>
+
+</VBox>
