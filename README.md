@@ -12,7 +12,7 @@ Aplikacja desktopowa do rezerwacji stref treningowych na siłowni.
 - Conflict detection for zones and trainers
 
 ## Tech stack
-Java, JavaFX (FXML), SQLite (JDBC), Maven
+Java 25, JavaFX (FXML), SQLite (JDBC), Maven
 
 ## Architecture
 - MVC with FXML views and controllers
@@ -27,8 +27,12 @@ Java, JavaFX (FXML), SQLite (JDBC), Maven
 <img width="635" height="1038" alt="image" src="https://github.com/user-attachments/assets/db1f826d-60ca-41da-b558-b9f09be8aacb" />
 
 
-## How to run
+## Requirements
+- JDK 25
+- IntelliJ IDEA (bundles Maven) or Maven 3.8+
 
+Open the project in IntelliJ and run `javafx:run` from the Maven panel
+(Plugins → javafx), or use `mvn clean javafx:run` in a terminal `
 
 ## Author
 Mateusz Łubowski
